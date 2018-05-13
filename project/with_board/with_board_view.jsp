@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@include file="../db.jsp"%>
-
+<%@include file="../config.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,8 +40,8 @@
 	<div class="container container-fluid" style="padding: 80px; width: 700px">
 
 		<div class="jumbotron">
-			<h1 class="display-4"><%=title%></h1>
-			<p class="lead"><%=name%></p>
+			<h1 class="display-4"><%= htmlspecialchars(title) %></h1>
+			<p class="lead"><%= htmlspecialchars(name) %></p>
 			<p class="lead"><%=date%></p>
 			<hr class="my-4">
 			<p><%=content%></p>
