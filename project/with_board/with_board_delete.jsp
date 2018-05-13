@@ -10,6 +10,9 @@
 </head>
 <body>
 	<%
+	
+	try {
+		connect();
 		String pw_param = request.getParameter("pw");
 		String no = request.getParameter("no");
 		if (no == null || no=="") {
@@ -19,20 +22,17 @@
 
 		if (pw_param == null || pw_param == "") {
 	%>
-	<div class="container container-fluid"
-		style="padding: 80px; width: 700px">
+	<div class="container container-fluid" style="padding: 80px; width: 700px">
 		<form action="./with_board_delete.jsp?no=<%=no%>" method="post">
 			<fieldset>
 				<legend>패스워드를 입력하세요</legend>
 
 				<div class="form-group">
-					<label>패스워드</label> <input type="password" name="pw"
-						class="form-control" placeholder="패스워드">
+					<label>패스워드</label> <input type="password" name="pw" class="form-control" placeholder="패스워드">
 				</div>
 
 				<button type="submit" class="btn btn-primary">삭제</button>
-				<button type="button" class="btn btn-link"
-					onclick="location.href='./index.jsp'">뒤로가기</button>
+				<button type="button" class="btn btn-link" onclick="location.href='./index.jsp'">뒤로가기</button>
 			</fieldset>
 		</form>
 	</div>
@@ -81,13 +81,19 @@
 				out.print("</script>");
 			}
 		} // else
+			
+	} // end try
+	catch (Exception e) {
+		out.print(e.getMessage());
+	}
+	finally {
+		disconnect();
+	}
 	%>
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </body>
 </html>
