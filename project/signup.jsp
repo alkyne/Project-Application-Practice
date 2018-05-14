@@ -130,7 +130,7 @@
 				pstmt.executeUpdate();
 
 				out.print("<script>");
-				out.print("alert('"+name+"');");
+				//out.print("alert('"+name+"');");
 				out.print("alert('회원가입 완료되었습니다.');");
 				out.print("location.href='index.jsp';");
 				out.print("</script>");
