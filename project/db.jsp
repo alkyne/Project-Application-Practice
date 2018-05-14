@@ -1,5 +1,7 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+
+<html>
+<body>
 
 <%!
 	Connection con = null;
@@ -7,8 +9,9 @@
 	ResultSet rs = null;
 
 	public void connect() {
+		
 		String jdbc_driver = "com.mysql.jdbc.Driver";
-		String jdbc_url = "jdbc:mysql://dongmin2.oa.to:3306/practical_project";
+		String jdbc_url = "jdbc:mysql://dongmin2.oa.to:3306/practical_project?characterEncoding=utf8";
 
 		try {
 			Class.forName(jdbc_driver);
@@ -40,3 +43,5 @@
 			}
 		}
 	}%>
+	</body>
+	</html>
